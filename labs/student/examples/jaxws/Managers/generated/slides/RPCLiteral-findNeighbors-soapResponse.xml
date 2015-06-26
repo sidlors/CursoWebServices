@@ -1,0 +1,12 @@
+<S:Envelope 
+    xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <ns2:findNeighborsResponse 
+          xmlns:ns2="http://server.jaxws.example.com/">
+         <return>
+            <item>JFK</item>
+            <item>SFO</item>
+         </return>
+      </ns2:findNeighborsResponse>
+   </S:Body>
+</S:Envelope>

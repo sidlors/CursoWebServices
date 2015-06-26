@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.1 in JDK 6. --><xs:schema xmlns:tns="http://server.jaxws.example.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://server.jaxws.example.com/">
+
+<xs:element name="addAirport" type="tns:addAirport"></xs:element>
+
+<xs:element name="addAirportResponse" type="tns:addAirportResponse"></xs:element>
+
+<xs:element name="removeByCode" type="tns:removeByCode"></xs:element>
+
+<xs:element name="removeByCodeResponse" type="tns:removeByCodeResponse"></xs:element>
+
+<xs:element name="removeById" type="tns:removeById"></xs:element>
+
+<xs:element name="removeByIdResponse" type="tns:removeByIdResponse"></xs:element>
+
+<xs:complexType name="removeByCode">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeByCodeResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeById">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeByIdResponse">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addAirport">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addAirportResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:long"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

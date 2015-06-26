@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="WebServices" default="default" basedir=".">
+    <description>Builds, tests, and runs the project WebServices.</description>
+    <import file="nbproject/build-impl.xml"/>
+<taskdef name="wsgen" classname="com.sun.tools.ws.ant.WsGen"/>
+<target name="-post-init" depends="">
+  <mkdir dir="generated" />
+  <mkdir dir="generated/xml" />
+  <mkdir dir="generated/src" />
+</target>
+<target name="-post-compile" depends="-post-init">
+<wsgen
+sei="labs.ItemManager"
+destdir="build/classes"
+resourcedestdir ="generated/xml"
+sourcedestdir ="generated/src"
+keep="true"
+verbose="true"
+genwsdl="true"
+xendorsed="true"
+protocol="soap1.1">
+  <classpath>
+    <pathelement path="${build.classes.dir}" />
+    <pathelement location="${reference.AuctionApp.jar}" />
+  </classpath>
+</wsgen >
+</target >
+</project>

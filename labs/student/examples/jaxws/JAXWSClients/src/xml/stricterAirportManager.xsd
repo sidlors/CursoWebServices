@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-b02-rc1. -->
+<xs:schema xmlns:tns="http://server.jaxws.example.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://server.jaxws.example.com/">
+
+<xs:element name="addAirport" type="tns:addAirport"/>
+<xs:element name="addAirportResponse" type="tns:addAirportResponse"></xs:element>
+
+<xs:complexType name="addAirport">
+  <xs:sequence>
+    <xs:element name="arg0" type="tns:code" minOccurs="0"/>
+    <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="code">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="\w{3}"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="addAirportResponse">
+  <xs:sequence>
+    <xs:element name="return" type="xs:long"></xs:element>
+  </xs:sequence>
+</xs:complexType>
+
+</xs:schema>

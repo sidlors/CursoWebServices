@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://com.example.test/"
+    xmlns:tns="http://com.example.test"
+    elementFormDefault="qualified">
+
+        <element name="myMethod">
+            <complexType>
+                <sequence>
+                    <element name="x" type="xsd:int"/>
+                    <element name="y" type="xsd:float"/>
+                </sequence>
+            </complexType>
+        </element>
+        <element name="myMethodResponse">
+            <complexType/>
+        </element>
+
+</xsd:schema>

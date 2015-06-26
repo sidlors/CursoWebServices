@@ -1,0 +1,143 @@
+
+<xs:schema version="1.0" targetNamespace="http://server.jaxws.example.com/">
+    <xs:element name="addFlight" type="tns:addFlight"/>
+    <xs:element name="addFlightResponse" type="tns:addFlightResponse"/>
+    <xs:element name="airport" type="tns:airport"/>
+    <xs:element name="getFlight" type="tns:getFlight"/>
+    <xs:element name="getFlightResponse" type="tns:getFlightResponse"/>
+    <xs:element name="simpleAddFlight" nillable="true" type="tns:addFlight"/>
+    <xs:element name="simpleAddFlightResponse" nillable="true" type="tns:addFlightResponse"/>
+
+    <xs:complexType name="getFlight">
+
+        <xs:sequence>
+            <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+            <xs:element name="arg1" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getFlightResponse">
+
+        <xs:sequence>
+            <xs:element name="return" type="tns:flight" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="flight">
+
+        <xs:complexContent>
+
+            <xs:extension base="tns:domainEntity">
+
+                <xs:sequence>
+                    <xs:element name="departs" type="tns:airport" minOccurs="0"/>
+                    <xs:element name="arrives" type="tns:airport" minOccurs="0"/>
+                    <xs:element name="departure" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="arrival" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="airline" type="xs:string" minOccurs="0"/>
+                    <xs:element name="number" type="xs:string" minOccurs="0"/>
+                    <xs:element name="maxSeats" type="xs:int"/>
+                    <xs:element name="tickets" type="tns:ticket" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+  <xs:complexType name="domainEntity">
+    <xs:sequence/>
+    <xs:attribute name="id" type="xs:long" use="required"/>
+    <xs:attribute name="version" type="xs:int"/>
+  </xs:complexType>
+
+    <xs:complexType name="airport">
+
+        <xs:complexContent>
+
+            <xs:extension base="tns:domainEntity">
+
+                <xs:sequence>
+                    <xs:element name="code" type="xs:string" minOccurs="0"/>
+                    <xs:element name="name" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ticket">
+
+        <xs:complexContent>
+
+            <xs:extension base="tns:domainEntity">
+
+                <xs:sequence>
+                    <xs:element name="issueDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="confirmationCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="price" type="xs:double"/>
+                    <xs:element name="flights" type="tns:flight" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="passenger" type="tns:passenger" minOccurs="0"/>
+                    <xs:element name="confirmed" type="xs:boolean"/>
+                    <xs:element name="payment" type="tns:payment" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="passenger">
+
+        <xs:complexContent>
+
+            <xs:extension base="tns:domainEntity">
+
+                <xs:sequence>
+                    <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+                    <xs:element name="lastName" type="xs:string" minOccurs="0"/>
+                    <xs:element name="phoneNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="freqFlyerId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="tickets" type="tns:ticket" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+  <xs:complexType name="payment">
+    <xs:complexContent>
+      <xs:extension base="tns:domainEntity">
+        <xs:sequence>
+          <xs:element name="ticket" type="tns:ticket"/>
+          <xs:element name="creditCardNum" type="xs:string"/>
+          <xs:element name="bankName" type="xs:string"/>
+          <xs:element name="expirationDate" type="xs:dateTime"/>
+          <xs:element name="status" type="tns:status"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+    <xs:complexType name="addFlight">
+
+        <xs:sequence>
+            <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+            <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+            <xs:element name="arg2" type="xs:string" minOccurs="0"/>
+            <xs:element name="arg3" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="arg4" type="xs:string" minOccurs="0"/>
+            <xs:element name="arg5" type="xs:dateTime" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="addFlightResponse">
+
+        <xs:sequence>
+            <xs:element name="return" type="tns:flight" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+  <xs:simpleType name="status">
+    <xs:restriction base="xs:string">
+    <xs:enumeration value="pending"/>
+    <xs:enumeration value="processing"/>
+    <xs:enumeration value="accepted"/>
+    <xs:enumeration value="rejected"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

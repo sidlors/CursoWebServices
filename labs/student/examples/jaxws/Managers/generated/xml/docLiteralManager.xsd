@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.6 in JDK 6. --><xs:schema xmlns:tns="http://server.jaxws.example.com/" xmlns:ns1="http://jaxb.dev.java.net/array" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://server.jaxws.example.com/">
+
+<xs:import namespace="http://jaxb.dev.java.net/array" schemaLocation="http://localhost:8080/docLiteralManager?xsd=2"></xs:import>
+
+<xs:element name="addAirportResponse" type="xs:long"></xs:element>
+
+<xs:element name="airport" nillable="true" type="tns:airport"></xs:element>
+
+<xs:element name="code" nillable="true" type="xs:string"></xs:element>
+
+<xs:element name="findNeighborsResponse" nillable="true" type="ns1:stringArray"></xs:element>
+
+<xs:complexType name="airport">
+<xs:complexContent>
+<xs:extension base="tns:domainEntity">
+<xs:sequence>
+<xs:element name="code" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="domainEntity">
+<xs:sequence>
+<xs:element name="id" type="xs:long"></xs:element>
+<xs:element name="version" type="xs:int" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Transfer-encoding: chunked
+Content-type: text/xml; charset=utf-8
+
+<S:Envelope 
+  xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <ns2:addAirportResponse
+          xmlns:ns2="http://server.jaxws.example.com/">
+         <return>1</return>
+      </ns2:addAirportResponse>
+   </S:Body>
+</S:Envelope>

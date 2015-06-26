@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/D:/labs/student/solutions/mod04/ex2/POJOsInContainer/src/java/labs/UserManagerSvc.wsdl" uri="src/conf/xml-resources/web-services/UserManagerImpl/wsdl/UserManagerSvc.wsdl"/>
+    <system systemId="file:/D:/labs/student/solutions/mod04/ex2/POJOsInContainer/src/java/labs/UserManager.wsdl" uri="src/conf/xml-resources/web-services/UserManagerImpl/wsdl/UserManager.wsdl"/>
+    <system systemId="file:/D:/labs/student/solutions/mod04/ex2/POJOsInContainer/src/java/labs/UserManager.xsd" uri="src/conf/xml-resources/web-services/UserManagerImpl/wsdl/UserManager.xsd"/>
+</catalog>

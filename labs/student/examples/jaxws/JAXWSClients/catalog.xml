@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/Users/education@oracle.com/projects/JavaEE6%20Web%20Services%20Courses/dws4050/trunk/examples/jaxws/JAXWSClients/src/xml/stricterAirportManager.wsdl" uri="xml-resources/web-service-references/stricterAirportManager/wsdl/stricterAirportManager.wsdl"/>
+    <system systemId="http://localhost:8080/airportManager?WSDL" uri="xml-resources/web-service-references/airportManager_1/wsdl/localhost_8080/airportManager.wsdl"/>
+    <system systemId="http://localhost:8080/airportManager?xsd=1" uri="xml-resources/web-service-references/airportManager_1/wsdl/localhost_8080/airportManager.xsd_1.xsd"/>
+    <system systemId="file:/Users/education@oracle.com/projects/JavaEE6%20Web%20Services%20Courses/dws4050/trunk/examples/jaxws/JAXWSClients/src/xml/asyncStrictAirportManager.wsdl" uri="xml-resources/web-service-references/asyncStrictAirportManager/wsdl/asyncStrictAirportManager.wsdl"/>
+    <system systemId="file:/Users/education@oracle.com/projects/JavaEE6%20Web%20Services%20Courses/dws4050/trunk/examples/jaxws/JAXWSClients/src/xml/stricterAirportManager.xsd" uri="xml-resources/web-service-references/asyncStrictAirportManager/wsdl/stricterAirportManager.xsd"/>
+</catalog>
+
+
+
+
+
+

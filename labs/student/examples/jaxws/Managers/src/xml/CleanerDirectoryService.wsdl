@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="UserDirectoryService.wsdl" 
+    targetNamespace="urn://UserDirectory"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="urn://UserDirectory" 
+    xmlns:defs="urn://UserDirectory/definitions">
+
+  <wsdl:import namespace="urn://UserDirectory/definitions"
+      location="PassengerManagerPort.wsdl"/>
+
+  <binding name="UserDirectoryBinding" type="defs:UserDirectory">
+    <soap:binding style="document"
+      transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="addUser">
+      <soap:operation/>
+      <input name="input1">
+        <soap:body use="literal"/>
+      </input>
+      <output name="out1">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="UserDirectoryService">
+    <port name="UserDirectory"
+        binding="tns:UserDirectoryBinding">
+      <soap:address
+        location="http://localhost/UserDirectory"/>
+    </port>
+  </service>
+</definitions>
+

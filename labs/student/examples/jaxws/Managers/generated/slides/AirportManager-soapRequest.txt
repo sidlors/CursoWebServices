@@ -1,0 +1,16 @@
+POST http://localhost:8080/airportManager HTTP/1.1
+Accept-Encoding: gzip,deflate
+Content-Type: text/xml;charset=UTF-8
+SOAPAction: ""
+Content-Length: 346
+
+<S:Envelope xmlns:ser="http://server.jaxws.example.com/"
+  xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Header/>
+   <S:Body>
+      <ser:addAirport>
+         <arg0>JFK</arg0>
+         <arg1>New York Kennedy Airport</arg1>
+      </ser:addAirport>
+   </S:Body>
+</S:Envelope>

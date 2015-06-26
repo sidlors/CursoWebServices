@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-752-. --><xs:schema xmlns:tns="http://labs/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://labs/">
+
+<xs:element name="addItem" type="tns:addItem" />
+
+<xs:element name="addItemResponse" type="tns:addItemResponse" />
+
+<xs:element name="findItem" type="tns:findItem" />
+
+<xs:element name="findItemResponse" type="tns:findItemResponse" />
+
+<xs:element name="item" type="tns:item" />
+
+<xs:element name="removeItem" type="tns:removeItem" />
+
+<xs:element name="removeItemResponse" type="tns:removeItemResponse" />
+
+<xs:element name="updateItem" type="tns:updateItem" />
+
+<xs:element name="updateItemResponse" type="tns:updateItemResponse" />
+
+<xs:complexType name="addItem">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addItemResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:item" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="item">
+<xs:complexContent>
+<xs:extension base="tns:domainEntity">
+<xs:sequence>
+<xs:element name="description" type="xs:string" minOccurs="0" />
+<xs:element name="image" type="xs:base64Binary" minOccurs="0" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="domainEntity">
+<xs:sequence />
+<xs:attribute name="id" type="xs:long" use="required" />
+<xs:attribute name="version" type="xs:int" />
+</xs:complexType>
+
+<xs:complexType name="updateItem">
+<xs:sequence>
+<xs:element name="arg0" type="tns:item" minOccurs="0" />
+<xs:element name="arg1" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateItemResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="removeItem">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeItemResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="findItem">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findItemResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:item" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

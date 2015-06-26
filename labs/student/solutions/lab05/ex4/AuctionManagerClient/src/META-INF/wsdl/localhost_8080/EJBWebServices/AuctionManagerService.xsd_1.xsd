@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-752-. --><xs:schema xmlns:tns="http://labs/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://labs/">
+
+<xs:element name="auction" type="tns:auction" />
+
+<xs:element name="bid" type="tns:bid" />
+
+<xs:element name="createAuction" type="tns:createAuction" />
+
+<xs:element name="createAuctionResponse" type="tns:createAuctionResponse" />
+
+<xs:element name="findAuction" type="tns:findAuction" />
+
+<xs:element name="findAuctionResponse" type="tns:findAuctionResponse" />
+
+<xs:element name="getHighBid" type="tns:getHighBid" />
+
+<xs:element name="getHighBidResponse" type="tns:getHighBidResponse" />
+
+<xs:element name="item" type="tns:item" />
+
+<xs:element name="listAuctions" type="tns:listAuctions" />
+
+<xs:element name="listAuctionsResponse" type="tns:listAuctionsResponse" />
+
+<xs:element name="listBids" type="tns:listBids" />
+
+<xs:element name="listBidsResponse" type="tns:listBidsResponse" />
+
+<xs:element name="placeBid" type="tns:placeBid" />
+
+<xs:element name="placeBidResponse" type="tns:placeBidResponse" />
+
+<xs:element name="simpleAuction" type="tns:simpleAuction" />
+
+<xs:element name="simpleBid" type="tns:simpleBid" />
+
+<xs:element name="user" type="tns:user" />
+
+<xs:complexType name="getHighBid">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getHighBidResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:bid" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bid" abstract="true">
+<xs:complexContent>
+<xs:extension base="tns:domainEntity">
+<xs:sequence>
+<xs:element name="maxValue" type="xs:double" />
+<xs:element name="currentValue" type="xs:double" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="domainEntity">
+<xs:sequence />
+<xs:attribute name="id" type="xs:long" use="required" />
+<xs:attribute name="version" type="xs:int" />
+</xs:complexType>
+
+<xs:complexType name="simpleBid">
+<xs:complexContent>
+<xs:extension base="tns:bid">
+<xs:sequence />
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="listAuctions">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="listAuctionsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listBids">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listBidsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="placeBid">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long" />
+<xs:element name="arg1" type="xs:long" />
+<xs:element name="arg2" type="xs:double" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="placeBidResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:bid" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAuction">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAuctionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:auction" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="auction" abstract="true">
+<xs:complexContent>
+<xs:extension base="tns:domainEntity">
+<xs:sequence>
+<xs:element name="seller" type="tns:user" minOccurs="0" />
+<xs:element name="item" type="tns:item" minOccurs="0" />
+<xs:element name="startDate" type="xs:dateTime" minOccurs="0" />
+<xs:element name="endDate" type="xs:dateTime" minOccurs="0" />
+<xs:element name="startPrice" type="xs:double" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="user">
+<xs:complexContent>
+<xs:extension base="tns:domainEntity">
+<xs:sequence>
+<xs:element name="auctions" type="tns:auction" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="bids" type="tns:bid" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="username" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="item">
+<xs:complexContent>
+<xs:extension base="tns:domainEntity">
+<xs:sequence>
+<xs:element name="description" type="xs:string" minOccurs="0" />
+<xs:element name="image" type="xs:base64Binary" minOccurs="0" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="simpleAuction">
+<xs:complexContent>
+<xs:extension base="tns:auction">
+<xs:sequence />
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="createAuction">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long" />
+<xs:element name="arg1" type="xs:long" />
+<xs:element name="arg2" type="xs:int" />
+<xs:element name="arg3" type="xs:double" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createAuctionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:auction" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

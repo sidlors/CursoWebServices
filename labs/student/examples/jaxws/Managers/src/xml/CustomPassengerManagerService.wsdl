@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="CustomPassengerManagerService.wsdl"
+    targetNamespace="urn://Traveller"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="urn://Traveller"
+    xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+  <wsdl:import namespace="urn://Traveller"
+      location="CustomPassengerManagerPort.wsdl"/>
+  <!-- ... -->
+  <jaxws:bindings
+    xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+    <jaxws:package name="com.example.custom"/>
+  </jaxws:bindings>
+
+  <binding name="CustomPassengerManagerBinding"
+    type="tns:CustomPassengerManager">
+    <soap:binding style="document"
+      transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="addPassenger">
+      <soap:operation/>
+      <input name="input1">
+        <soap:body use="literal"/>
+      </input>
+      <output name="out1">
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CustomPassengerManagerService">
+    <port name="CustomPassengerManager"
+        binding="tns:CustomPassengerManagerBinding">
+      <soap:address
+        location="http://localhost:8080/customManager"/>
+    </port>
+  </service>
+</definitions>
+

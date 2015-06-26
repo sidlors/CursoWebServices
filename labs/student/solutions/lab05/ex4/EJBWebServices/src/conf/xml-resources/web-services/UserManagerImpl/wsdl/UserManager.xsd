@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema id="UserManager.xsd"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="urn://auction/"
+    targetNamespace="urn://auction/">
+
+  <xsd:element name="addUser">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="name" type="xsd:string"/>
+        <xsd:element name="email" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="addUserResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="result" type="xsd:long" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="findUser">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="userid" type="xsd:long"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="findUserResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="result" type="tns:user" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="updateUser">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="id" type="xsd:long"/>
+        <xsd:element name="username" type="xsd:string"  />
+        <xsd:element name="email" type="xsd:string"  />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="updateUserResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="result" type="tns:user" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+<xsd:complexType name="user">
+  <xsd:complexContent>
+  <xsd:extension base="tns:domainEntity">
+    <xsd:sequence>
+      <xsd:element name="username" type="xsd:string"  />
+      <xsd:element name="email" type="xsd:string"  />
+    </xsd:sequence>
+  </xsd:extension>
+  </xsd:complexContent>
+</xsd:complexType>
+
+
+<xsd:complexType name="domainEntity">
+  <xsd:sequence />
+  <xsd:attribute name="id" type="xsd:long" use="required" />
+  <xsd:attribute name="version" type="xsd:int" />
+</xsd:complexType>
+
+
+</xsd:schema>

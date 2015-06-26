@@ -1,0 +1,11 @@
+<S:Envelope 
+    xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" 
+    xmlns:ser="http://server.jaxws.example.com/">
+   <S:Header/>
+   <S:Body>
+      <ser:addAirport>
+         <code>JFK</code>
+         <name>New York John F. Kennedy Airport</name>
+      </ser:addAirport>
+   </S:Body>
+</S:Envelope>

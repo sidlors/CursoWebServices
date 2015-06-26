@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8081/userManager?wsdl" uri="xml-resources/web-service-references/userManager/wsdl/localhost_8081/userManager.wsdl"/>
+    <system systemId="http://localhost:8081/userManager?wsdl=1" uri="xml-resources/web-service-references/userManager/wsdl/localhost_8081/userManager.wsdl_1.wsdl"/>
+    <system systemId="http://localhost:8081/userManager?xsd=1" uri="xml-resources/web-service-references/userManager/wsdl/localhost_8081/userManager.xsd_1.xsd"/>
+</catalog>
+

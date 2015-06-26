@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-b02-rc1. --><xs:schema xmlns:tns="http://server.jaxws.example.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://server.jaxws.example.com/">
+
+<xs:element name="DuplicateObjectException" type="tns:DuplicateObjectException"></xs:element>
+
+<xs:element name="addAirport" type="tns:addAirport"></xs:element>
+
+<xs:element name="addAirportResponse" type="tns:addAirportResponse"></xs:element>
+
+<xs:element name="airport" type="tns:airport"></xs:element>
+
+<xs:element name="findNeighbors" type="tns:findNeighbors"></xs:element>
+
+<xs:element name="findNeighborsResponse" type="tns:findNeighborsResponse"></xs:element>
+
+<xs:complexType name="addAirport">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addAirportResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:long"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DuplicateObjectException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findNeighbors">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findNeighborsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:airport" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="airport">
+<xs:complexContent>
+<xs:extension base="tns:domainEntity">
+<xs:sequence>
+<xs:element name="code" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="name" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="domainEntity">
+<xs:sequence></xs:sequence>
+<xs:attribute name="id" type="xs:long" use="required"></xs:attribute>
+<xs:attribute name="version" type="xs:int"></xs:attribute>
+</xs:complexType>
+</xs:schema>

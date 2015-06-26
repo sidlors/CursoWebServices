@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="UserManager.wsdl"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="urn://Auction/"
+    targetNamespace="urn://Auction/">
+
+  <message name="addUserRequest">
+    <part name="name" type="xsd:string"/>
+    <part name="email" type="xsd:string"/>
+  </message>
+  <message name="addUserResp">
+    <part name="return" type="xsd:long"/>
+  </message>
+  <portType name="UserManager">
+    <operation name="addUser">
+      <input name="in1" message="tns:addUserRequest"/>
+      <output name="out1" message="tns:addUserResp"/>
+    </operation>
+  </portType>
+</definitions>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="urn://com.example.managerNS" xmlns:tns="urn://com.example.managerNS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="addAirport" type="tns:addAirport"/>
+
+  <xs:element name="addAirportResponse" type="tns:addAirportResponse"/>
+
+  <xs:complexType name="addAirport">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addAirportResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

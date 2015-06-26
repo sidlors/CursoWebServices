@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="UserManagerSvc.wsdl"
+    targetNamespace="urn://Auction/"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="urn://Auction/">
+
+  <wsdl:import namespace="urn://Auction/"
+      location="UserManager.wsdl"/>
+
+  <binding name="binding" type="tns:UserManager">
+    <soap:binding style="rpc"
+      transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="addUser">
+      <soap:operation/>
+      <input><soap:body use="literal"/></input>
+      <output><soap:body use="literal"/></output>
+    </operation>
+  </binding>
+  <service name="UserManagerSvc">
+    <port name="UserManager" binding="tns:binding">
+      <soap:address
+        location="http://localhost:8081/rpcUserManager"/>
+    </port>
+  </service>
+</definitions>

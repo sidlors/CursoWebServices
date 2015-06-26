@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8081/rpcUserManager?wsdl" uri="xml-resources/web-service-references/rpcUserManager/wsdl/localhost_8081/rpcUserManager.wsdl"/>
+    <system systemId="http://localhost:8081/rpcUserManager?wsdl=1" uri="xml-resources/web-service-references/rpcUserManager/wsdl/localhost_8081/rpcUserManager.wsdl_1.wsdl"/>
+</catalog>
+

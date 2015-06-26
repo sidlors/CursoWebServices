@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema id="SaferPassengerManagerSchema.xsd"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+    jxb:version="1.0"
+    xmlns:tns="urn://Traveller/"
+    elementFormDefault="qualified"
+    targetNamespace="urn://Traveller/">
+
+  <xsd:element name="addPassenger">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="firstName" type="xsd:string"/>
+        <xsd:element name="lastName" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="addPassengerResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="result" type="xsd:long"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name="addPassengerFault">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="duplicateCode" type="xsd:string"/>
+        <xsd:element name="duplicateName" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:annotation>
+   <xsd:appinfo>
+     <jxb:schemaBindings>
+       <jxb:package name="com.example.safe"/>
+     </jxb:schemaBindings>
+   </xsd:appinfo>
+ </xsd:annotation>
+</xsd:schema>

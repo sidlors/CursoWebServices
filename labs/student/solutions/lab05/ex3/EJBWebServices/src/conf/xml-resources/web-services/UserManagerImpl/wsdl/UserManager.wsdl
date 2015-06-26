@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="UserManager.wsdl"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="urn://auction/"
+    targetNamespace="urn://auction/">
+
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="urn://auction/"
+          schemaLocation="UserManager.xsd"/>
+    </xsd:schema>
+  </types>
+
+  <message name="addUserRequest">
+    <part name="params" element="tns:addUser"/>
+  </message>
+  <message name="addUserResp">
+    <part name="params" element="tns:addUserResponse"/>
+  </message>
+
+  <message name="findUserRequest">
+    <part name="params" element="tns:findUser"/>
+  </message>
+  <message name="findUserResp">
+    <part name="params" element="tns:findUserResponse"/>
+  </message>
+
+  <message name="updateUserRequest">
+    <part name="params" element="tns:updateUser"/>
+  </message>
+  <message name="updateUserResp">
+    <part name="params" element="tns:updateUserResponse"/>
+  </message>
+
+
+  <portType name="UserManager">
+
+    <operation name="addUser">
+      <input name="in1" message="tns:addUserRequest"/>
+      <output name="out1" message="tns:addUserResp"/>
+    </operation>
+
+    <operation name="findUser">
+      <input name="in1" message="tns:findUserRequest"/>
+      <output name="out1" message="tns:findUserResp"/>
+    </operation>
+
+    <operation name="updateUser">
+      <input name="in1" message="tns:updateUserRequest"/>
+      <output name="out1" message="tns:updateUserResp"/>
+    </operation>
+
+  </portType>
+</definitions>

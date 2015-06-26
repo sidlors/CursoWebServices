@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="test" targetNamespace="http://com.example.test/"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com.example.test/">
+<types>
+   <xsd:schema>
+      <xsd:import namespace="http://com.example.test/"
+          schemaLocation="test.xsd"/>
+    </xsd:schema>
+</types>
+<message name="myMethodRequest">
+    <part name="parameters" element="tns:myMethod"/>
+</message>
+<message name="empty">
+    <part name="parameters" element="tns:myMethodResponse"/>
+</message>
+<portType name="PT">
+    <operation name="myMethod">
+        <input name="in1" message="tns:myMethodRequest"/>
+        <output name="out1" message="tns:empty"/>
+    </operation>
+</portType>
+<binding name="PTBinding" type="tns:PT">
+    <soap:binding style="document"
+      transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="myMethod">
+        <input><soap:body use="literal"/></input>
+        <output><soap:body use="literal"/></output>
+    </operation>
+</binding>
+<service name="PTsvc">
+  <port name="PTport"
+        binding="tns:PTBinding">
+      <soap:address
+        location="http://localhost:8080/pt"/>
+    </port>
+</service>
+</definitions>
+
+

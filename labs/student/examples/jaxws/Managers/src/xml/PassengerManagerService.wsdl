@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="UserDirectoryService.wsdl" 
+    targetNamespace="urn://Traveller/"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="urn://Traveller/">
+
+  <wsdl:import namespace="urn://Traveller/"
+      location="PassengerManagerPort.wsdl"/>
+
+  <binding name="binding" type="tns:PassengerManager">
+    <soap:binding style="document"
+      transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="addPassenger">
+      <soap:operation/>
+      <input><soap:body use="literal"/></input>
+      <output><soap:body use="literal"/></output>
+    </operation>
+  </binding>
+  <service name="PassengerManagerService">
+    <port name="PassengerManager" binding="tns:binding">
+      <soap:address 
+        location="http://localhost:8080/passengerManager"/>
+    </port>
+  </service>
+</definitions>
+
+
+
+

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-752-. --><xs:schema xmlns:tns="urn://auction/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="urn://auction/">
+
+<xs:element name="addUser">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="name" type="xs:string" />
+<xs:element name="email" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="addUserResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="result" type="xs:long" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="findUser">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="userid" type="xs:long" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="findUserResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="result" type="tns:user" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="updateUser">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="id" type="xs:long" />
+<xs:element name="username" type="xs:string" />
+<xs:element name="email" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="updateUserResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="result" type="tns:user" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:complexType name="user">
+<xs:complexContent>
+<xs:extension base="tns:domainEntity">
+<xs:sequence>
+<xs:element name="username" type="xs:string" />
+<xs:element name="email" type="xs:string" />
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="domainEntity">
+<xs:sequence />
+<xs:attribute name="id" type="xs:long" use="required" />
+<xs:attribute name="version" type="xs:int" />
+</xs:complexType>
+</xs:schema>

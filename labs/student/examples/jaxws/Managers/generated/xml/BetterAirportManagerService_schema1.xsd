@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://server.jaxws.example.com/" xmlns:tns="http://server.jaxws.example.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="addAirport" type="tns:addAirport"/>
+
+  <xs:element name="addAirportResponse" type="tns:addAirportResponse"/>
+
+  <xs:element name="removeByCode" type="tns:removeByCode"/>
+
+  <xs:element name="removeByCodeResponse" type="tns:removeByCodeResponse"/>
+
+  <xs:element name="removeById" type="tns:removeById"/>
+
+  <xs:element name="removeByIdResponse" type="tns:removeByIdResponse"/>
+
+  <xs:complexType name="removeByCode">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="removeByCodeResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="removeById">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="removeByIdResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="addAirport">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addAirportResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,97 @@
+
+<definitions targetNamespace="http://server.jaxws.example.com/" name="FlightManagerService">
+
+    <types>
+
+        <xsd:schema>
+            <xsd:import namespace="http://server.jaxws.example.com/" schemaLocation="http://localhost:8080/flightManager?xsd=1"/>
+        </xsd:schema>
+    </types>
+
+    <message name="addFlight">
+        <part name="parameters" element="tns:addFlight"/>
+    </message>
+
+    <message name="addFlightResponse">
+        <part name="parameters" element="tns:addFlightResponse"/>
+    </message>
+
+  <message name="simpleAddFlight">
+    <part name="parameters" element="tns:simpleAddFlight"/>
+  </message>
+
+  <message name="simpleAddFlightResponse">
+    <part name="parameters" element="tns:simpleAddFlightResponse"/>
+  </message>
+
+    <message name="getFlight">
+        <part name="parameters" element="tns:getFlight"/>
+    </message>
+
+    <message name="getFlightResponse">
+        <part name="parameters" element="tns:getFlightResponse"/>
+    </message>
+
+  <portType name="FlightManager">
+    <operation name="addFlight">
+      <input wsam:Action="http://server.jaxws.example.com/FlightManager/addFlightRequest" message="tns:addFlight"/>
+      <output wsam:Action="http://server.jaxws.example.com/FlightManager/addFlightResponse" message="tns:addFlightResponse"/>
+    </operation>
+
+    <operation name="simpleAddFlight">
+      <input message="tns:simpleAddFlight"/>
+      <output message="tns:simpleAddFlightResponse"/>
+    </operation>
+
+    <operation name="getFlight">
+      <input wsam:Action="http://server.jaxws.example.com/FlightManager/getFlightRequest" message="tns:getFlight"/>
+      <output wsam:Action="http://server.jaxws.example.com/FlightManager/getFlightResponse" message="tns:getFlightResponse"/>
+    </operation>
+  </portType>
+  
+    <binding name="FlightManagerPortBinding" type="tns:FlightManager">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+
+        <operation name="addFlight">
+            <soap:operation soapAction=""/>
+
+            <input>
+                <soap:body use="literal"/>
+            </input>
+
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="simpleAddFlight">
+            <soap:operation soapAction=""/>
+
+            <input>
+                <soap:body use="literal"/>
+            </input>
+
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+
+        <operation name="getFlight">
+            <soap:operation soapAction=""/>
+
+            <input>
+                <soap:body use="literal"/>
+            </input>
+
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="FlightManagerService">
+      <port name="FlightManagerPort" binding="tns:FlightManagerPortBinding">
+        <soap:address location="http://localhost:8080/flightManager"/>
+      </port>
+    </service>
+</definitions>

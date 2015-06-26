@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/EJBWebServices/ItemManagerWS?wsdl" uri="xml-resources/web-service-references/ItemManagerWS/wsdl/localhost_8080/EJBWebServices/ItemManagerWS.wsdl"/>
+    <system systemId="http://localhost:8080/EJBWebServices/ItemManagerWS?xsd=1" uri="xml-resources/web-service-references/ItemManagerWS/wsdl/localhost_8080/EJBWebServices/ItemManagerWS.xsd_1.xsd"/>
+</catalog>

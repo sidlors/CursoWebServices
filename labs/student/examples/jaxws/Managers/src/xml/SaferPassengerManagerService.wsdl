@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="SaferPassengerManagerService.wsdl"
+    targetNamespace="urn://Traveller/"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="urn://Traveller/">
+
+  <wsdl:import namespace="urn://Traveller/"
+      location="SaferPassengerManagerPort.wsdl"/>
+  <jaxws:bindings
+    xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+    <jaxws:package name="com.example.safe"/>
+  </jaxws:bindings>
+
+  <binding name="SaferPassengerManagerBinding" type="tns:SaferPassengerManager">
+    <soap:binding style="document"
+      transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="addPassenger">
+      <soap:operation/>
+      <input><soap:body use="literal"/></input>
+      <output><soap:body use="literal"/></output>
+      <fault name="fault1"><soap:fault name="fault1" use="literal"/></fault>
+    </operation>
+  </binding>
+  <service name="SaferPassengerManagerService">
+    <port name="SaferPassengerManager"
+        binding="tns:SaferPassengerManagerBinding">
+      <soap:address 
+        location="http://localhost:8080/saferPassengerManager"/>
+    </port>
+  </service>
+</definitions>
+
+
+
+

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        -->
+<project xmlns:xalan="http://xml.apache.org/xslt" xmlns:webproject2="http://www.netbeans.org/ns/web-project/2" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSGEN SECTION
+                ===================
+            -->
+    <target name="wsgen-init" depends="init, -do-compile">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws/resources/"/>
+        <mkdir dir="${build.classes.dir}"/>
+        <taskdef name="wsgen" classname="com.sun.tools.ws.ant.WsGen">
+            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
+        </taskdef>
+    </target>
+    <target name="wsgen-ItemManager" depends="wsgen-init">
+        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" xendorsed="true" keep="true" genwsdl="true" sei="labs.ItemManager">
+            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
+        </wsgen>
+    </target>
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${java.home}/../lib/tools.jar:${j2ee.platform.wsimport.classpath}:${javac.classpath}"/>
+        </taskdef>
+        <condition property="conf-dir" value="${conf.dir}/" else="">
+            <isset property="conf.dir"/>
+        </condition>
+    </target>
+    <target name="wsimport-service-UserManagerImpl" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/UserManagerImpl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/UserManagerImpl" destdir="${build.generated.dir}/jax-wsCache/service/UserManagerImpl" wsdl="${basedir}/${conf-dir}xml-resources/web-services/UserManagerImpl/wsdl/UserManagerSvc.wsdl" catalog="catalog.xml" extension="true" verbose="true" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/UserManagerImpl/wsdl/UserManagerSvc.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/UserManagerImpl"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/UserManagerImpl">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/UserManagerImpl">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/UserManagerImpl/wsdl/"/>
+        </copy>
+    </target>
+    <target name="wsimport-service-clean-UserManagerImpl" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/auction"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/UserManagerImpl"/>
+    </target>
+    <target name="wsimport-service-generate" depends="wsimport-service-UserManagerImpl, wsimport-init"/>
+</project>
