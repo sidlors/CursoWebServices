@@ -6,13 +6,13 @@
     <groupId>mx.com.certificatic.webservices</groupId>
 	<version>0.0.1-SNAPSHOT</version>
   </parent>
-  
-  <groupId>mx.com.certificatic.webservices</groupId>
+
+
   <artifactId>WS-Practica1</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>WS-Practica1 Maven Webapp</name>
-  <url>http://maven.apache.org</url>
+
+  <name>WS-Practica1</name>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -21,7 +21,27 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+
+
   <build>
-    <finalName>WS-Practica1</finalName>
-  </build>
+		<finalName>ws</finalName>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<!-- Java EE 6 doesn't require web.xml, Maven needs to catch up! -->
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
 </project>
