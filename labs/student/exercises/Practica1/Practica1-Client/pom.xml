@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>mx.com.certificatic.webservices</groupId>
+		<artifactId>Practica1</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>Practica1-Client</artifactId>
+
+	<build>
+		<resources>
+			<resource>
+				<targetPath>META-INF</targetPath>
+				<directory>src</directory>
+				<includes>
+					<include>jax-ws-catalog.xml</include>
+					<include>wsdl/**</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.jvnet.jax-ws-commons</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<wsdlDirectory>${basedir}/src/main/resources/</wsdlDirectory>
+					<sourceDestDir>${basedir}/src/main/java/</sourceDestDir>
+				</configuration>
+				<!-- executions> <execution> <goals> <goal>wsimport</goal> </goals> <configuration> 
+					<wsdlFiles> <wsdlFile>SayHelloService.wsdl</wsdlFile> </wsdlFiles> <wsdlLocation>http://sidlors-laptop:8080/WS-Practica1-0.0.1-SNAPSHOT/SayHelloService?wsdl</wsdlLocation> 
+					<staleFile>${project.build.directory}/jaxws/stale/test_project_ws_v1.stale</staleFile> 
+					</configuration> <id>wsimport-generate-test_project_ws_v1</id> <phase>generate-sources</phase> 
+					</execution> </executions -->
+				<dependencies>
+					<dependency>
+						<groupId>javax.xml</groupId>
+						<artifactId>webservices-api</artifactId>
+						<version>1.4</version>
+					</dependency>
+				</dependencies>
+				<!-- configuration> <sourceDestDir>${project.build.directory}/generated-sources/jaxws-wsimport</sourceDestDir> 
+					<xnocompile>true</xnocompile> <verbose>true</verbose> <extension>true</extension> 
+					<catalog>${basedir}/src/jax-ws-catalog.xml</catalog> </configuration -->
+			</plugin>
+		</plugins>
+	</build>
+</project>

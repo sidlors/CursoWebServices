@@ -1,0 +1,49 @@
+<definitions
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy"
+	xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://service.practica1.certificatic.com.mx/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://service.practica1.certificatic.com.mx/"
+	name="SayHelloService">
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://service.practica1.certificatic.com.mx/"
+				schemaLocation="http://sidlors-laptop:8080/WS-Practica1-0.0.1-SNAPSHOT/SayHelloService?xsd=1" />
+		</xsd:schema>
+	</types>
+	<message name="sayHello">
+		<part name="parameters" element="tns:sayHello" />
+	</message>
+	<message name="sayHelloResponse">
+		<part name="parameters" element="tns:sayHelloResponse" />
+	</message>
+	<portType name="SayHello">
+		<operation name="sayHello">
+			<input
+				wsam:Action="http://service.practica1.certificatic.com.mx/SayHello/sayHelloRequest"
+				message="tns:sayHello" />
+			<output
+				wsam:Action="http://service.practica1.certificatic.com.mx/SayHello/sayHelloResponse"
+				message="tns:sayHelloResponse" />
+		</operation>
+	</portType>
+	<binding name="SayHelloPortBinding" type="tns:SayHello">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<operation name="sayHello">
+			<soap:operation soapAction="" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="SayHelloService">
+		<port name="SayHelloPort" binding="tns:SayHelloPortBinding">
+			<soap:address
+				location="http://sidlors-laptop:8080/WS-Practica1-0.0.1-SNAPSHOT/SayHelloService" />
+		</port>
+	</service>
+</definitions>
