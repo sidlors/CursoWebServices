@@ -5,12 +5,12 @@ import javax.xml.ws.WebServiceRef;
 import mx.com.certificatic.practica1.service.SayHello;
 import mx.com.certificatic.practica1.service.SayHelloService;
 
-
 public class HelloClient {
 	@WebServiceRef(wsdlLocation = "http://localhost:8080/helloservice/hello?wsdl")
 	static SayHelloService service;
 
 	public static void main(String[] args) {
+
 		try {
 			HelloClient client = new HelloClient();
 			client.doTest(args);
